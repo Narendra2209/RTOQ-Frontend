@@ -1,0 +1,5 @@
+# This file must live in frontend/ itself: when frontend/ is its own git repo the
+# .gitignore one folder up is outside it and does nothing.
+
+node_modules/
+dist/

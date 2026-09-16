@@ -1,0 +1,20 @@
+# Render blueprint for the RTOQ-Frontend repo (this folder is that repo's root).
+# The built page only, handed out by Render's CDN. Every /api call goes to the
+# separate RTOQ-Backend service at VITE_API_URL, which is read at build time, so
+# changing it needs a redeploy, not just a restart.
+services:
+  - type: web
+    name: rtoq-frontend
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      # The backend service's address, e.g. https://rtoq-backend.onrender.com
+      # (no slash on the end). Fill this in before the first deploy.
+      - key: VITE_API_URL
+        sync: false
+    routes:
+      # A single-page app: every address serves index.html and the page sorts it out.
+      - type: rewrite
+        source: /*
+        destination: /index.html
