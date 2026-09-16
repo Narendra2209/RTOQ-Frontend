@@ -2,4 +2,4 @@
 # .gitignore one folder up is outside it and does nothing.
 
 node_modules/
-dist/
+build/

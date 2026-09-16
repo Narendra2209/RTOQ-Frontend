@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 
 // The page runs on :3435 and every /api call goes through to the Flask backend on
 // :2324. Both ports can be changed in backend/.env (BACKEND_PORT, FRONTEND_PORT), the
-// same file the backend reads. `npm run build` writes frontend/dist, which
+// same file the backend reads. `npm run build` writes frontend/build, which
 // `npm run preview` (and Flask) serve.
 const backendDir = fileURLToPath(new URL('../backend', import.meta.url));
 
@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
     server: page,
     preview: page,
     build: {
-      outDir: 'dist',
+      outDir: 'build',
       emptyOutDir: true,
     },
   };

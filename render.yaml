@@ -7,7 +7,7 @@ services:
     name: rtoq-frontend
     runtime: static
     buildCommand: npm ci && npm run build
-    staticPublishPath: ./dist
+    staticPublishPath: ./build
     envVars:
       # The backend service's address, e.g. https://rtoq-backend.onrender.com
       # (no slash on the end). Fill this in before the first deploy.
