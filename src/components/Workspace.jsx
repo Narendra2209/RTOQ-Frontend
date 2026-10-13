@@ -124,12 +124,6 @@ export default function Workspace({ file, data, branch, setBranch, warehouse, se
             </div>
           </div>
           {data.notes ? <div className="notes">{asText(data.notes)}</div> : null}
-          {data.text ? (
-            <details className="doctext">
-              <summary>Full text read from the PDF</summary>
-              <pre>{asText(data.text)}</pre>
-            </details>
-          ) : null}
         </div>
 
         <div id="msgs" ref={msgsRef}>
