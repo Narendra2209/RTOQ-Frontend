@@ -107,6 +107,10 @@ header .right{margin-left:auto;display:flex;align-items:center;gap:14px}
 .drop-list .none{padding:9px 10px;color:var(--faint);font-size:13px}
 
 .notes{margin:14px 0 0;font-size:13.5px;color:var(--mute);border-left:3px solid var(--rule);padding-left:11px;white-space:pre-wrap}
+.doctext{margin:12px 0 0;font-size:13px;color:var(--mute)}
+.doctext summary{cursor:pointer;font-weight:600}
+.doctext pre{margin:8px 0 0;max-height:320px;overflow:auto;padding:10px 12px;background:var(--surface);border:1px solid var(--hair);
+  font-size:12px;line-height:1.45;color:var(--ink);white-space:pre-wrap;word-break:break-word}
 
 /* ---- lines ---- */
 .lines{padding:16px 22px 120px;flex:1}

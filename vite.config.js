@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -6,7 +7,10 @@ import react from '@vitejs/plugin-react';
 // :2324. Both ports can be changed in backend/.env (BACKEND_PORT, FRONTEND_PORT), the
 // same file the backend reads. `npm run build` writes frontend/build, which
 // `npm run preview` (and Flask) serve.
-const backendDir = fileURLToPath(new URL('../backend', import.meta.url));
+// The backend folder is RTOQ-Backend in the split repos, backend in the original layout.
+const backendDir = ['../RTOQ-Backend', '../backend']
+  .map((dir) => fileURLToPath(new URL(dir, import.meta.url)))
+  .find((dir) => existsSync(dir)) ?? fileURLToPath(new URL('../backend', import.meta.url));
 
 export default defineConfig(({ mode }) => {
   const env = { ...loadEnv(mode, backendDir, ''), ...process.env };
